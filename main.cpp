@@ -15,6 +15,7 @@ int main()
 	double yWasser = 100;
 	double temp = 0;
 	double min = 0;
+	double max = 0;
 	double summe = 0.0;
 	double mittelWert;
 	int x;
@@ -26,9 +27,12 @@ int main()
 		{
 			min=zeit[x];
 		}
+		else if(zeit[x] > max)
+		{
+			max=zeit[x];
+		}
 		summe = summe + zeit[x];
 	}
-
 
 	//Bubble
     for (int i = 0; i < anzl - 1; i++) {
@@ -46,7 +50,7 @@ int main()
 
 	cout << endl ;	
 	cout <<" Min wert: "<< min << endl;
-	cout <<" Max wert: " << zeit[anzl-1] << endl;
+	cout <<" Max wert: " << max << endl;
 	cout <<" Mittelwert: "<< summe/x << endl;
 	cout << " Mediane: " << zeit[anzl/2];
 	cout << endl;
