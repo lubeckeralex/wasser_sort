@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int anzl = 101;
+	double arr[101];
+	double sLand, sWasser, tGes, min, max, arMitl, temp, medianWert;
+	sLand = sqrt(50.0 * 50.0);
+	sWasser = sqrt(50.0*50.0  + 100*100);	
+	arr[0] = ( sLand / 5) + ( sWasser / 2.5);
+	min = arr[0];
+	max = arr[0];
+	arMitl = arr[0];
+	
+	for(int i = 1; i < anzl; i++)
+	{
+		sLand = sqrt(50.0 * 50.0 + i*i );
+		sWasser = sqrt( 50.0*50.0  + (100 - i)*(100 - i) );
+		tGes = ( sLand / 5) + ( sWasser / 2.5);
+
+		arr[i] = tGes;
+		arMitl = arMitl + arr[i];
+
+		if (arr[i] < min )
+		{
+			min = arr[i];
+		}
+		if (arr[i] > max )
+		{
+			max = arr[i];
+		}
+	}
+	
+
+	///Bubble sort
+	for(int n = 0;n < anzl; n++)
+    {
+        for(int j = 0; j < anzl -1; j++)
+        {
+            if( arr[j] > arr[j+1] )
+            {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;    
+            }
+        }
+    }
+
+	cout << "Min. Zeit = " << min << endl;
+	cout << "Max. Zeit = " << max << endl;
+	cout << "Arithmetisches Mittelwert = " << arMitl / anzl << endl;
+
+
+	if ((anzl % 2) != 0)
+    {
+        medianWert = arr[anzl / 2];
+        cout << "median Wert = " << medianWert  << endl;
+    }
+    else 
+    {
+		medianWert = (arr[(anzl) /2] + arr[anzl - 1]) /2.0 ;
+		cout << "medianwert  = " << medianWert << endl;
+    }
+
+}
